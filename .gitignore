@@ -1,0 +1,6 @@
+.env
+gen/out/
+__pycache__/
+.venv/
+node_modules/
+web/dist/
