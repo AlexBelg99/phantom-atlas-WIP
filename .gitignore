@@ -1,4 +1,7 @@
 .env
+.env.*
+!.env.example
+*.key
 gen/out/
 __pycache__/
 .venv/
