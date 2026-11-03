@@ -1,0 +1,50 @@
+{
+  "id": "p007",
+  "pipeline": "gpt_image2",
+  "pipeline_description": "GPT Image 2 (medium), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "medium",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 1960944880,
+  "attributes": {
+    "setting": "tropical",
+    "setting_desc": "a road through a humid tropical town with lush vegetation",
+    "road": "a cracked asphalt road with faded white centre lines",
+    "roadside": [
+      "a row of rubbish bins",
+      "roadside billboards with faded posters"
+    ],
+    "vegetation": "banana plants and bamboo",
+    "weather": "scattered clouds",
+    "time_of_day": "midday",
+    "season": "spring",
+    "surreal": null,
+    "structures": "grey prefabricated apartment blocks"
+  },
+  "cost_estimate_usd": 0.06,
+  "date": "2026-11-03T21:17:21+00:00",
+  "seconds": 26.4,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 7.35,
+  "quality": "medium"
+}

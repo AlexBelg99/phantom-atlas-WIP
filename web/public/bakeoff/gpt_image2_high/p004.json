@@ -1,0 +1,50 @@
+{
+  "id": "p004",
+  "pipeline": "gpt_image2_high",
+  "pipeline_description": "GPT Image 2 (high), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through an industrial area with warehouses and yards, a concrete road with expansion joints; wooden houses painted in faded bright colours; a few pedestrians on the pavement, a row of rubbish bins; birch trees; early evening, summer, overcast sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "high",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through an industrial area with warehouses and yards, a concrete road with expansion joints; wooden houses painted in faded bright colours; a few pedestrians on the pavement, a row of rubbish bins; birch trees; early evening, summer, overcast sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 573330498,
+  "attributes": {
+    "setting": "industrial",
+    "setting_desc": "a road through an industrial area with warehouses and yards",
+    "road": "a concrete road with expansion joints",
+    "roadside": [
+      "a few pedestrians on the pavement",
+      "a row of rubbish bins"
+    ],
+    "vegetation": "birch trees",
+    "weather": "overcast sky",
+    "time_of_day": "early evening",
+    "season": "summer",
+    "surreal": null,
+    "structures": "wooden houses painted in faded bright colours"
+  },
+  "cost_estimate_usd": 0.25,
+  "date": "2026-11-03T21:18:52+00:00",
+  "seconds": 67.3,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 3.4,
+  "quality": "high"
+}

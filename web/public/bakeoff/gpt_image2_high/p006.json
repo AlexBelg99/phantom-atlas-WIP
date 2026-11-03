@@ -1,0 +1,50 @@
+{
+  "id": "p006",
+  "pipeline": "gpt_image2_high",
+  "pipeline_description": "GPT Image 2 (high), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "high",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 491876988,
+  "attributes": {
+    "setting": "forest",
+    "setting_desc": "a road through a dense forest",
+    "road": "a patched asphalt road with potholes",
+    "roadside": [
+      "a parked pickup truck on the verge",
+      "reflector posts along the edge"
+    ],
+    "vegetation": "tall pine trees",
+    "weather": "light snow on the ground",
+    "time_of_day": "early evening",
+    "season": "wet season",
+    "surreal": "every building is upside down, resting on its roof",
+    "structures": "a rusted water tank on a tower"
+  },
+  "cost_estimate_usd": 0.25,
+  "date": "2026-11-03T21:20:57+00:00",
+  "seconds": 66.7,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 13.34,
+  "quality": "high"
+}

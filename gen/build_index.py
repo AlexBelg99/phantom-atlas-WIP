@@ -21,7 +21,6 @@ PIPELINES = [
     ("klein_lora", "B", "FLUX.2 Klein + 360 LoRA"),
     ("gpt_image2", "C", "GPT Image 2 (medium)"),
     ("gpt_image2_high", "D", "GPT Image 2 (high)"),
-    ("forward_hunyuan", "E", "Photo → Hunyuan World"),
 ]
 
 

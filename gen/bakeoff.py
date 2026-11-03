@@ -142,29 +142,6 @@ def run_gpt_image2(item: dict, quality: str = "medium") -> Result:
                   {"medium": 0.06, "high": 0.25}[quality], {"quality": quality})
 
 
-# D: forward street photo (FLUX.2 klein), then Hunyuan World image-to-panorama.
-def run_forward_hunyuan(item: dict) -> Result:
-    e1 = "fal-ai/flux-2/klein/9b/lora"
-    fw, fh = 1344, 768
-    a1 = {
-        "prompt": item["prompt_forward"],
-        "image_size": {"width": fw, "height": fh},
-        "num_inference_steps": 8,
-        "seed": item["seed"],
-        "output_format": "jpeg",
-        "enable_safety_checker": True,
-    }
-    o1 = _call(e1, a1)
-    forward_url = o1["images"][0]["url"]
-
-    e2 = "fal-ai/hunyuan_world"
-    a2 = {"image_url": forward_url, "prompt": item["prompt_360"], "enable_safety_checker": True}
-    o2 = _call(e2, a2)
-    return Result(o2["image"]["url"],
-                  [{"endpoint": e1, "arguments": a1}, {"endpoint": e2, "arguments": a2}],
-                  round(_mp(fw, fh) * 0.015 + 0.15, 4), {"forward_image_url": forward_url})
-
-
 PIPELINES = {
     p.name: p for p in [
         Pipeline("flux1_lora", "FLUX.1 [dev] + Equirectangular LoRA v3", 0.073, run_flux1_lora),
@@ -172,7 +149,6 @@ PIPELINES = {
         Pipeline("gpt_image2", "GPT Image 2 (medium), prompted for equirectangular", 0.06, run_gpt_image2),
         Pipeline("gpt_image2_high", "GPT Image 2 (high), prompted for equirectangular", 0.25,
                  lambda item: run_gpt_image2(item, "high")),
-        Pipeline("forward_hunyuan", "FLUX.2 [klein] forward photo -> Hunyuan World panorama", 0.166, run_forward_hunyuan),
     ]
 }
 

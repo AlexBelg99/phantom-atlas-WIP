@@ -1,0 +1,50 @@
+{
+  "id": "p005",
+  "pipeline": "gpt_image2_high",
+  "pipeline_description": "GPT Image 2 (high), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "high",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 992696249,
+  "attributes": {
+    "setting": "steppe",
+    "setting_desc": "a long road across a grassy steppe with distant hills",
+    "road": "a fresh black asphalt road with yellow edge lines",
+    "roadside": [
+      "an abandoned car on the verge",
+      "a faded speed limit sign"
+    ],
+    "vegetation": "bare deciduous trees",
+    "weather": "clear sky",
+    "time_of_day": "afternoon",
+    "season": "wet season",
+    "surreal": "an enormous stone hand rises out of the ground beside the road",
+    "structures": "a small bus shelter"
+  },
+  "cost_estimate_usd": 0.25,
+  "date": "2026-11-03T21:19:50+00:00",
+  "seconds": 57.9,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 2.74,
+  "quality": "high"
+}

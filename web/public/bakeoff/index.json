@@ -30,8 +30,8 @@
       "endpoints": [
         "openai/gpt-image-2"
       ],
-      "count": 7,
-      "cost_total_usd": 0.42
+      "count": 10,
+      "cost_total_usd": 0.6
     },
     {
       "name": "gpt_image2_high",
@@ -41,20 +41,8 @@
       "endpoints": [
         "openai/gpt-image-2"
       ],
-      "count": 2,
-      "cost_total_usd": 0.5
-    },
-    {
-      "name": "forward_hunyuan",
-      "letter": "E",
-      "label": "Photo → Hunyuan World",
-      "description": "FLUX.2 [klein] forward photo -> Hunyuan World panorama",
-      "endpoints": [
-        "fal-ai/flux-2/klein/9b/lora",
-        "fal-ai/hunyuan_world"
-      ],
-      "count": 1,
-      "cost_total_usd": 0.166
+      "count": 10,
+      "cost_total_usd": 2.5
     }
   ],
   "items": [
@@ -192,6 +180,16 @@
             2048,
             1024
           ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p003.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 6.71,
+          "seconds": 62.4,
+          "raw_size": [
+            2048,
+            1024
+          ]
         }
       }
     },
@@ -227,6 +225,16 @@
           "cost_usd": 0.06,
           "seam_score": 4.0,
           "seconds": 25.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p004.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 3.4,
+          "seconds": 67.3,
           "raw_size": [
             2048,
             1024
@@ -270,6 +278,16 @@
             2048,
             1024
           ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p005.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 2.74,
+          "seconds": 57.9,
+          "raw_size": [
+            2048,
+            1024
+          ]
         }
       }
     },
@@ -309,6 +327,16 @@
             2048,
             1024
           ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p006.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 13.34,
+          "seconds": 66.7,
+          "raw_size": [
+            2048,
+            1024
+          ]
         }
       }
     },
@@ -338,6 +366,26 @@
             2048,
             1024
           ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p007.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 7.35,
+          "seconds": 26.4,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p007.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 10.53,
+          "seconds": 66.5,
+          "raw_size": [
+            2048,
+            1024
+          ]
         }
       }
     },
@@ -363,6 +411,26 @@
           "cost_usd": 0.0315,
           "seam_score": 15.48,
           "seconds": 4.3,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p008.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 3.63,
+          "seconds": 23.0,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p008.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 2.15,
+          "seconds": 55.6,
           "raw_size": [
             2048,
             1024
@@ -407,14 +475,14 @@
             1024
           ]
         },
-        "forward_hunyuan": {
-          "file": "bakeoff/forward_hunyuan/p009.jpg",
-          "cost_usd": 0.1655,
-          "seam_score": 3.96,
-          "seconds": 145.0,
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p009.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 4.99,
+          "seconds": 64.9,
           "raw_size": [
-            1920,
-            960
+            2048,
+            1024
           ]
         }
       }
@@ -445,9 +513,29 @@
             2048,
             1024
           ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p010.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 6.44,
+          "seconds": 26.9,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p010.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 5.51,
+          "seconds": 69.9,
+          "raw_size": [
+            2048,
+            1024
+          ]
         }
       }
     }
   ],
-  "total_cost_usd": 1.85
+  "total_cost_usd": 3.86
 }
