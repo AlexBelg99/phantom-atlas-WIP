@@ -121,7 +121,7 @@ def run_klein_lora(item: dict) -> Result:
 
 
 # C: GPT Image 2, asked directly for an equirectangular panorama.
-def run_gpt_image2(item: dict) -> Result:
+def run_gpt_image2(item: dict, quality: str = "medium") -> Result:
     endpoint = "openai/gpt-image-2"
     prompt = (
         item["prompt_360"]
@@ -133,13 +133,13 @@ def run_gpt_image2(item: dict) -> Result:
     args = {
         "prompt": prompt,
         "image_size": {"width": PANO_W, "height": PANO_H},
-        "quality": "medium",
+        "quality": quality,
         "output_format": "jpeg",
     }
     out = _call(endpoint, args)
-    # Token-priced; medium at ~2 MP is roughly $0.05-0.06. Refined once billed.
+    # Token-priced; rough per-image estimates at 2048x1024. Check fal's usage page.
     return Result(out["images"][0]["url"], [{"endpoint": endpoint, "arguments": args}],
-                  0.06, {})
+                  {"medium": 0.06, "high": 0.25}[quality], {"quality": quality})
 
 
 # D: forward street photo (FLUX.2 klein), then Hunyuan World image-to-panorama.
@@ -170,6 +170,8 @@ PIPELINES = {
         Pipeline("flux1_lora", "FLUX.1 [dev] + Equirectangular LoRA v3", 0.073, run_flux1_lora),
         Pipeline("klein_lora", "FLUX.2 [klein] 9B + 360 panorama LoRA", 0.032, run_klein_lora),
         Pipeline("gpt_image2", "GPT Image 2 (medium), prompted for equirectangular", 0.06, run_gpt_image2),
+        Pipeline("gpt_image2_high", "GPT Image 2 (high), prompted for equirectangular", 0.25,
+                 lambda item: run_gpt_image2(item, "high")),
         Pipeline("forward_hunyuan", "FLUX.2 [klein] forward photo -> Hunyuan World panorama", 0.166, run_forward_hunyuan),
     ]
 }

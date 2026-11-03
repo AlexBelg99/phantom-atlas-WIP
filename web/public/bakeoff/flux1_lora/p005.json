@@ -1,0 +1,58 @@
+{
+  "id": "p005",
+  "pipeline": "flux1_lora",
+  "pipeline_description": "FLUX.1 [dev] + Equirectangular LoRA v3",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-lora",
+      "arguments": {
+        "prompt": "equirectangular 360 degree panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "https://huggingface.co/MultiTrickFox/Flux-LoRA-Equirectangular-v3/resolve/main/equirectangular_flux_lora_v3_000003072.safetensors",
+            "scale": 1.0
+          }
+        ],
+        "guidance_scale": 2.5,
+        "num_inference_steps": 28,
+        "seed": 992696249,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 992696249,
+  "attributes": {
+    "setting": "steppe",
+    "setting_desc": "a long road across a grassy steppe with distant hills",
+    "road": "a fresh black asphalt road with yellow edge lines",
+    "roadside": [
+      "an abandoned car on the verge",
+      "a faded speed limit sign"
+    ],
+    "vegetation": "bare deciduous trees",
+    "weather": "clear sky",
+    "time_of_day": "afternoon",
+    "season": "wet season",
+    "surreal": "an enormous stone hand rises out of the ground beside the road",
+    "structures": "a small bus shelter"
+  },
+  "cost_estimate_usd": 0.0413,
+  "date": "2026-11-03T21:15:05+00:00",
+  "seconds": 8.0,
+  "raw_size": [
+    1536,
+    768
+  ],
+  "saved_size": [
+    1536,
+    768
+  ],
+  "aspect_ok": true,
+  "seam_score": 6.1
+}

@@ -1,0 +1,58 @@
+{
+  "id": "p008",
+  "pipeline": "flux1_lora",
+  "pipeline_description": "FLUX.1 [dev] + Equirectangular LoRA v3",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-lora",
+      "arguments": {
+        "prompt": "equirectangular 360 degree panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "https://huggingface.co/MultiTrickFox/Flux-LoRA-Equirectangular-v3/resolve/main/equirectangular_flux_lora_v3_000003072.safetensors",
+            "scale": 1.0
+          }
+        ],
+        "guidance_scale": 2.5,
+        "num_inference_steps": 28,
+        "seed": 306814401,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 306814401,
+  "attributes": {
+    "setting": "desert",
+    "setting_desc": "a two-lane road crossing a dry desert",
+    "road": "a concrete road with expansion joints",
+    "roadside": [
+      "kilometre marker posts",
+      "a drainage ditch beside the road"
+    ],
+    "vegetation": "cacti",
+    "weather": "fog",
+    "time_of_day": "late afternoon with long shadows",
+    "season": "wet season",
+    "surreal": null,
+    "structures": "no buildings in sight"
+  },
+  "cost_estimate_usd": 0.0413,
+  "date": "2026-11-03T21:15:27+00:00",
+  "seconds": 6.4,
+  "raw_size": [
+    1536,
+    768
+  ],
+  "saved_size": [
+    1536,
+    768
+  ],
+  "aspect_ok": true,
+  "seam_score": 8.17
+}

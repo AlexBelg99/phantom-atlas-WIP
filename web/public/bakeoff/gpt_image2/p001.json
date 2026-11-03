@@ -1,0 +1,50 @@
+{
+  "id": "p001",
+  "pipeline": "gpt_image2",
+  "pipeline_description": "GPT Image 2 (medium), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. the shoulder of a multi-lane highway, a patched asphalt road with potholes; a rusted water tank on a tower; wooden fence posts with wire, reflector posts along the edge; overgrown weeds along the verge; midday, wet season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "medium",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. the shoulder of a multi-lane highway, a patched asphalt road with potholes; a rusted water tank on a tower; wooden fence posts with wire, reflector posts along the edge; overgrown weeds along the verge; midday, wet season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 1239854303,
+  "attributes": {
+    "setting": "highway",
+    "setting_desc": "the shoulder of a multi-lane highway",
+    "road": "a patched asphalt road with potholes",
+    "roadside": [
+      "wooden fence posts with wire",
+      "reflector posts along the edge"
+    ],
+    "vegetation": "overgrown weeds along the verge",
+    "weather": "hazy sky",
+    "time_of_day": "midday",
+    "season": "wet season",
+    "surreal": null,
+    "structures": "a rusted water tank on a tower"
+  },
+  "cost_estimate_usd": 0.06,
+  "date": "2026-11-03T21:14:53+00:00",
+  "seconds": 25.8,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 5.02,
+  "quality": "medium"
+}

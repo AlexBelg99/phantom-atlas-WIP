@@ -1,0 +1,453 @@
+{
+  "pipelines": [
+    {
+      "name": "flux1_lora",
+      "letter": "A",
+      "label": "FLUX.1 + 360 LoRA",
+      "description": "FLUX.1 [dev] + Equirectangular LoRA v3",
+      "endpoints": [
+        "fal-ai/flux-lora"
+      ],
+      "count": 10,
+      "cost_total_usd": 0.445
+    },
+    {
+      "name": "klein_lora",
+      "letter": "B",
+      "label": "FLUX.2 Klein + 360 LoRA",
+      "description": "FLUX.2 [klein] 9B + 360 panorama LoRA",
+      "endpoints": [
+        "fal-ai/flux-2/klein/9b/lora"
+      ],
+      "count": 10,
+      "cost_total_usd": 0.315
+    },
+    {
+      "name": "gpt_image2",
+      "letter": "C",
+      "label": "GPT Image 2 (medium)",
+      "description": "GPT Image 2 (medium), prompted for equirectangular",
+      "endpoints": [
+        "openai/gpt-image-2"
+      ],
+      "count": 7,
+      "cost_total_usd": 0.42
+    },
+    {
+      "name": "gpt_image2_high",
+      "letter": "D",
+      "label": "GPT Image 2 (high)",
+      "description": "GPT Image 2 (high), prompted for equirectangular",
+      "endpoints": [
+        "openai/gpt-image-2"
+      ],
+      "count": 2,
+      "cost_total_usd": 0.5
+    },
+    {
+      "name": "forward_hunyuan",
+      "letter": "E",
+      "label": "Photo → Hunyuan World",
+      "description": "FLUX.2 [klein] forward photo -> Hunyuan World panorama",
+      "endpoints": [
+        "fal-ai/flux-2/klein/9b/lora",
+        "fal-ai/hunyuan_world"
+      ],
+      "count": 1,
+      "cost_total_usd": 0.166
+    }
+  ],
+  "items": [
+    {
+      "id": "p001",
+      "setting": "highway",
+      "surreal": null,
+      "summary": "the shoulder of a multi-lane highway; a rusted water tank on a tower; hazy sky",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. the shoulder of a multi-lane highway, a patched asphalt road with potholes; a rusted water tank on a tower; wooden fence posts with wire, reflector posts along the edge; overgrown weeds along the verge; midday, wet season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p001.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 9.41,
+          "seconds": 10.0,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p001.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 23.58,
+          "seconds": 6.3,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p001.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 5.02,
+          "seconds": 25.8,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p001.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 5.02,
+          "seconds": 68.0,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p002",
+      "setting": "mountain",
+      "surreal": null,
+      "summary": "a winding mountain road with a steep slope on one side; power lines on wooden poles; dusty air",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a winding mountain road with a steep slope on one side, a dirt road with tyre ruts; power lines on wooden poles; wooden fence posts with wire, a dented metal guardrail; moss and lichen; late afternoon with long shadows, summer, dusty air. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p002.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 14.75,
+          "seconds": 7.2,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p002.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 56.07,
+          "seconds": 5.1,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p002.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 3.7,
+          "seconds": 21.8,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2_high": {
+          "file": "bakeoff/gpt_image2_high/p002.jpg",
+          "cost_usd": 0.25,
+          "seam_score": 7.14,
+          "seconds": 67.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p003",
+      "setting": "farmland",
+      "surreal": null,
+      "summary": "a straight road through open farmland; no buildings in sight; light rain with wet road surfaces",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a straight road through open farmland, a fresh black asphalt road with yellow edge lines; no buildings in sight; kilometre marker posts, wooden fence posts with wire; banana plants and bamboo; morning, autumn, light rain with wet road surfaces. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p003.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 5.27,
+          "seconds": 6.2,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p003.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 61.33,
+          "seconds": 4.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p003.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 9.28,
+          "seconds": 24.3,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p004",
+      "setting": "industrial",
+      "surreal": null,
+      "summary": "a road through an industrial area with warehouses and yards; wooden houses painted in faded bright colours; overcast sky",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through an industrial area with warehouses and yards, a concrete road with expansion joints; wooden houses painted in faded bright colours; a few pedestrians on the pavement, a row of rubbish bins; birch trees; early evening, summer, overcast sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p004.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 16.32,
+          "seconds": 6.5,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p004.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 20.45,
+          "seconds": 4.7,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p004.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 4.0,
+          "seconds": 25.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p005",
+      "setting": "steppe",
+      "surreal": "an enormous stone hand rises out of the ground beside the road",
+      "summary": "a long road across a grassy steppe with distant hills; a small bus shelter; clear sky",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p005.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 6.1,
+          "seconds": 8.0,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p005.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 21.16,
+          "seconds": 5.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p005.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 5.22,
+          "seconds": 24.7,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p006",
+      "setting": "forest",
+      "surreal": "every building is upside down, resting on its roof",
+      "summary": "a road through a dense forest; a rusted water tank on a tower; light snow on the ground",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p006.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 18.51,
+          "seconds": 6.9,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p006.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 28.72,
+          "seconds": 5.5,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p006.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 17.24,
+          "seconds": 25.7,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p007",
+      "setting": "tropical",
+      "surreal": null,
+      "summary": "a road through a humid tropical town with lush vegetation; grey prefabricated apartment blocks; scattered clouds",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p007.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 19.72,
+          "seconds": 8.6,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p007.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 44.43,
+          "seconds": 4.3,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p008",
+      "setting": "desert",
+      "surreal": null,
+      "summary": "a two-lane road crossing a dry desert; no buildings in sight; fog",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p008.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 8.17,
+          "seconds": 6.4,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p008.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 15.48,
+          "seconds": 4.3,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "id": "p009",
+      "setting": "old_town",
+      "surreal": null,
+      "summary": "a narrow street in an old town centre; stone cottages with slate roofs; hazy sky",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a narrow street in an old town centre, a cobblestone road; stone cottages with slate roofs; a few pedestrians on the pavement, street signs in an unfamiliar script; flowering bushes; morning, dry season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p009.jpg",
+          "cost_usd": 0.0734,
+          "seam_score": 16.46,
+          "seconds": 12.9,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p009.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 20.97,
+          "seconds": 49.2,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "gpt_image2": {
+          "file": "bakeoff/gpt_image2/p009.jpg",
+          "cost_usd": 0.06,
+          "seam_score": 5.14,
+          "seconds": 25.4,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        },
+        "forward_hunyuan": {
+          "file": "bakeoff/forward_hunyuan/p009.jpg",
+          "cost_usd": 0.1655,
+          "seam_score": 3.96,
+          "seconds": 145.0,
+          "raw_size": [
+            1920,
+            960
+          ]
+        }
+      }
+    },
+    {
+      "id": "p010",
+      "setting": "suburb",
+      "surreal": "a second, smaller copy of the street hangs upside down in the sky",
+      "summary": "a quiet residential suburban street; pastel-painted stucco buildings with flat roofs; overcast sky",
+      "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a quiet residential suburban street, a patched asphalt road with potholes; pastel-painted stucco buildings with flat roofs; a small roadside shrine, roadside billboards with faded posters; birch trees; afternoon, summer, overcast sky; a second, smaller copy of the street hangs upside down in the sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "results": {
+        "flux1_lora": {
+          "file": "bakeoff/flux1_lora/p010.jpg",
+          "cost_usd": 0.0413,
+          "seam_score": 12.11,
+          "seconds": 5.2,
+          "raw_size": [
+            1536,
+            768
+          ]
+        },
+        "klein_lora": {
+          "file": "bakeoff/klein_lora/p010.jpg",
+          "cost_usd": 0.0315,
+          "seam_score": 17.5,
+          "seconds": 4.0,
+          "raw_size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    }
+  ],
+  "total_cost_usd": 1.85
+}

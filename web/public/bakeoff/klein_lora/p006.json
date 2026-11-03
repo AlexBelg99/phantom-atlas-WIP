@@ -1,0 +1,57 @@
+{
+  "id": "p006",
+  "pipeline": "klein_lora",
+  "pipeline_description": "FLUX.2 [klein] 9B + 360 panorama LoRA",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-2/klein/9b/lora",
+      "arguments": {
+        "prompt": "Equirectangular 360 panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "crafiq/flux-2-klein-9b-360-panorama-lora",
+            "scale": 1.0
+          }
+        ],
+        "num_inference_steps": 8,
+        "seed": 491876988,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 491876988,
+  "attributes": {
+    "setting": "forest",
+    "setting_desc": "a road through a dense forest",
+    "road": "a patched asphalt road with potholes",
+    "roadside": [
+      "a parked pickup truck on the verge",
+      "reflector posts along the edge"
+    ],
+    "vegetation": "tall pine trees",
+    "weather": "light snow on the ground",
+    "time_of_day": "early evening",
+    "season": "wet season",
+    "surreal": "every building is upside down, resting on its roof",
+    "structures": "a rusted water tank on a tower"
+  },
+  "cost_estimate_usd": 0.0315,
+  "date": "2026-11-03T21:14:58+00:00",
+  "seconds": 5.5,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 28.72
+}
