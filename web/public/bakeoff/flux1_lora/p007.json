@@ -1,0 +1,58 @@
+{
+  "id": "p007",
+  "pipeline": "flux1_lora",
+  "pipeline_description": "FLUX.1 [dev] + Equirectangular LoRA v3",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-lora",
+      "arguments": {
+        "prompt": "equirectangular 360 degree panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "https://huggingface.co/MultiTrickFox/Flux-LoRA-Equirectangular-v3/resolve/main/equirectangular_flux_lora_v3_000003072.safetensors",
+            "scale": 1.0
+          }
+        ],
+        "guidance_scale": 2.5,
+        "num_inference_steps": 28,
+        "seed": 1960944880,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 1960944880,
+  "attributes": {
+    "setting": "tropical",
+    "setting_desc": "a road through a humid tropical town with lush vegetation",
+    "road": "a cracked asphalt road with faded white centre lines",
+    "roadside": [
+      "a row of rubbish bins",
+      "roadside billboards with faded posters"
+    ],
+    "vegetation": "banana plants and bamboo",
+    "weather": "scattered clouds",
+    "time_of_day": "midday",
+    "season": "spring",
+    "surreal": null,
+    "structures": "grey prefabricated apartment blocks"
+  },
+  "cost_estimate_usd": 0.0413,
+  "date": "2026-11-03T21:15:21+00:00",
+  "seconds": 8.6,
+  "raw_size": [
+    1536,
+    768
+  ],
+  "saved_size": [
+    1536,
+    768
+  ],
+  "aspect_ok": true,
+  "seam_score": 19.72
+}

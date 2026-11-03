@@ -1,0 +1,57 @@
+{
+  "id": "p007",
+  "pipeline": "klein_lora",
+  "pipeline_description": "FLUX.2 [klein] 9B + 360 panorama LoRA",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-2/klein/9b/lora",
+      "arguments": {
+        "prompt": "Equirectangular 360 panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "crafiq/flux-2-klein-9b-360-panorama-lora",
+            "scale": 1.0
+          }
+        ],
+        "num_inference_steps": 8,
+        "seed": 1960944880,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 1960944880,
+  "attributes": {
+    "setting": "tropical",
+    "setting_desc": "a road through a humid tropical town with lush vegetation",
+    "road": "a cracked asphalt road with faded white centre lines",
+    "roadside": [
+      "a row of rubbish bins",
+      "roadside billboards with faded posters"
+    ],
+    "vegetation": "banana plants and bamboo",
+    "weather": "scattered clouds",
+    "time_of_day": "midday",
+    "season": "spring",
+    "surreal": null,
+    "structures": "grey prefabricated apartment blocks"
+  },
+  "cost_estimate_usd": 0.0315,
+  "date": "2026-11-03T21:15:03+00:00",
+  "seconds": 4.3,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 44.43
+}

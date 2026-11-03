@@ -1,0 +1,50 @@
+{
+  "id": "p008",
+  "pipeline": "gpt_image2",
+  "pipeline_description": "GPT Image 2 (medium), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "medium",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 306814401,
+  "attributes": {
+    "setting": "desert",
+    "setting_desc": "a two-lane road crossing a dry desert",
+    "road": "a concrete road with expansion joints",
+    "roadside": [
+      "kilometre marker posts",
+      "a drainage ditch beside the road"
+    ],
+    "vegetation": "cacti",
+    "weather": "fog",
+    "time_of_day": "late afternoon with long shadows",
+    "season": "wet season",
+    "surreal": null,
+    "structures": "no buildings in sight"
+  },
+  "cost_estimate_usd": 0.06,
+  "date": "2026-11-03T21:17:44+00:00",
+  "seconds": 23.0,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 3.63,
+  "quality": "medium"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "p002",
+  "pipeline": "gpt_image2_high",
+  "pipeline_description": "GPT Image 2 (high), prompted for equirectangular",
+  "calls": [
+    {
+      "endpoint": "openai/gpt-image-2",
+      "arguments": {
+        "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a winding mountain road with a steep slope on one side, a dirt road with tyre ruts; power lines on wooden poles; wooden fence posts with wire, a dented metal guardrail; moss and lichen; late afternoon with long shadows, summer, dusty air. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic. The image must be a single full spherical equirectangular projection: 360 degrees horizontally and 180 degrees vertically, with the left and right edges joining seamlessly. Straight lines bend as in a real equirectangular photo. No borders, no text overlays.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "quality": "high",
+        "output_format": "jpeg"
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a winding mountain road with a steep slope on one side, a dirt road with tyre ruts; power lines on wooden poles; wooden fence posts with wire, a dented metal guardrail; moss and lichen; late afternoon with long shadows, summer, dusty air. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 2115747110,
+  "attributes": {
+    "setting": "mountain",
+    "setting_desc": "a winding mountain road with a steep slope on one side",
+    "road": "a dirt road with tyre ruts",
+    "roadside": [
+      "wooden fence posts with wire",
+      "a dented metal guardrail"
+    ],
+    "vegetation": "moss and lichen",
+    "weather": "dusty air",
+    "time_of_day": "late afternoon with long shadows",
+    "season": "summer",
+    "surreal": null,
+    "structures": "power lines on wooden poles"
+  },
+  "cost_estimate_usd": 0.25,
+  "date": "2026-11-03T21:16:43+00:00",
+  "seconds": 67.2,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 7.14,
+  "quality": "high"
+}

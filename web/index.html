@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phantom Atlas · Bake-off</title>
+  </head>
+  <body>
+    <header class="top">
+      <h1>Phantom Atlas <span>model bake-off</span></h1>
+      <p class="hint">Drag to look around · scroll or pinch to zoom · ← → switch model (same view angle) · ↑ ↓ switch place</p>
+    </header>
+
+    <nav id="places" class="places" aria-label="Test places"></nav>
+
+    <section class="stage">
+      <div id="viewer" class="viewer"></div>
+      <aside class="info">
+        <div id="pipes" class="pipes" role="tablist" aria-label="Models"></div>
+        <div id="details" class="details"></div>
+      </aside>
+    </section>
+
+    <section>
+      <h2 class="sub">Flat views of this place</h2>
+      <div id="flats" class="flats"></div>
+    </section>
+
+    <footer id="footer" class="footer"></footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "id": "p006",
+  "pipeline": "flux1_lora",
+  "pipeline_description": "FLUX.1 [dev] + Equirectangular LoRA v3",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-lora",
+      "arguments": {
+        "prompt": "equirectangular 360 degree panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "https://huggingface.co/MultiTrickFox/Flux-LoRA-Equirectangular-v3/resolve/main/equirectangular_flux_lora_v3_000003072.safetensors",
+            "scale": 1.0
+          }
+        ],
+        "guidance_scale": 2.5,
+        "num_inference_steps": 28,
+        "seed": 491876988,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 491876988,
+  "attributes": {
+    "setting": "forest",
+    "setting_desc": "a road through a dense forest",
+    "road": "a patched asphalt road with potholes",
+    "roadside": [
+      "a parked pickup truck on the verge",
+      "reflector posts along the edge"
+    ],
+    "vegetation": "tall pine trees",
+    "weather": "light snow on the ground",
+    "time_of_day": "early evening",
+    "season": "wet season",
+    "surreal": "every building is upside down, resting on its roof",
+    "structures": "a rusted water tank on a tower"
+  },
+  "cost_estimate_usd": 0.0413,
+  "date": "2026-11-03T21:15:12+00:00",
+  "seconds": 6.9,
+  "raw_size": [
+    1536,
+    768
+  ],
+  "saved_size": [
+    1536,
+    768
+  ],
+  "aspect_ok": true,
+  "seam_score": 18.51
+}

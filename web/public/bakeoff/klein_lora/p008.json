@@ -1,0 +1,57 @@
+{
+  "id": "p008",
+  "pipeline": "klein_lora",
+  "pipeline_description": "FLUX.2 [klein] 9B + 360 panorama LoRA",
+  "calls": [
+    {
+      "endpoint": "fal-ai/flux-2/klein/9b/lora",
+      "arguments": {
+        "prompt": "Equirectangular 360 panorama, 360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+        "image_size": {
+          "width": 2048,
+          "height": 1024
+        },
+        "loras": [
+          {
+            "path": "crafiq/flux-2-klein-9b-360-panorama-lora",
+            "scale": 1.0
+          }
+        ],
+        "num_inference_steps": 8,
+        "seed": 306814401,
+        "output_format": "jpeg",
+        "enable_safety_checker": true
+      }
+    }
+  ],
+  "prompt": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+  "seed": 306814401,
+  "attributes": {
+    "setting": "desert",
+    "setting_desc": "a two-lane road crossing a dry desert",
+    "road": "a concrete road with expansion joints",
+    "roadside": [
+      "kilometre marker posts",
+      "a drainage ditch beside the road"
+    ],
+    "vegetation": "cacti",
+    "weather": "fog",
+    "time_of_day": "late afternoon with long shadows",
+    "season": "wet season",
+    "surreal": null,
+    "structures": "no buildings in sight"
+  },
+  "cost_estimate_usd": 0.0315,
+  "date": "2026-11-03T21:15:07+00:00",
+  "seconds": 4.3,
+  "raw_size": [
+    2048,
+    1024
+  ],
+  "saved_size": [
+    2048,
+    1024
+  ],
+  "aspect_ok": true,
+  "seam_score": 15.48
+}
