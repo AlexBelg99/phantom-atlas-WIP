@@ -1,0 +1,228 @@
+{
+  "generator": "gen/prompt_gen.py",
+  "master_seed": 42,
+  "weird": 0.3,
+  "stratify": true,
+  "items": [
+    {
+      "id": "p001",
+      "seed": 1239854303,
+      "attributes": {
+        "setting": "highway",
+        "setting_desc": "the shoulder of a multi-lane highway",
+        "road": "a patched asphalt road with potholes",
+        "roadside": [
+          "wooden fence posts with wire",
+          "reflector posts along the edge"
+        ],
+        "vegetation": "overgrown weeds along the verge",
+        "weather": "hazy sky",
+        "time_of_day": "midday",
+        "season": "wet season",
+        "surreal": null,
+        "structures": "a rusted water tank on a tower"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. the shoulder of a multi-lane highway, a patched asphalt road with potholes; a rusted water tank on a tower; wooden fence posts with wire, reflector posts along the edge; overgrown weeds along the verge; midday, wet season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. the shoulder of a multi-lane highway, a patched asphalt road with potholes; a rusted water tank on a tower; wooden fence posts with wire, reflector posts along the edge; overgrown weeds along the verge; midday, wet season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p002",
+      "seed": 2115747110,
+      "attributes": {
+        "setting": "mountain",
+        "setting_desc": "a winding mountain road with a steep slope on one side",
+        "road": "a dirt road with tyre ruts",
+        "roadside": [
+          "wooden fence posts with wire",
+          "a dented metal guardrail"
+        ],
+        "vegetation": "moss and lichen",
+        "weather": "dusty air",
+        "time_of_day": "late afternoon with long shadows",
+        "season": "summer",
+        "surreal": null,
+        "structures": "power lines on wooden poles"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a winding mountain road with a steep slope on one side, a dirt road with tyre ruts; power lines on wooden poles; wooden fence posts with wire, a dented metal guardrail; moss and lichen; late afternoon with long shadows, summer, dusty air. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a winding mountain road with a steep slope on one side, a dirt road with tyre ruts; power lines on wooden poles; wooden fence posts with wire, a dented metal guardrail; moss and lichen; late afternoon with long shadows, summer, dusty air. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p003",
+      "seed": 1365121943,
+      "attributes": {
+        "setting": "farmland",
+        "setting_desc": "a straight road through open farmland",
+        "road": "a fresh black asphalt road with yellow edge lines",
+        "roadside": [
+          "kilometre marker posts",
+          "wooden fence posts with wire"
+        ],
+        "vegetation": "banana plants and bamboo",
+        "weather": "light rain with wet road surfaces",
+        "time_of_day": "morning",
+        "season": "autumn",
+        "surreal": null,
+        "structures": "no buildings in sight"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a straight road through open farmland, a fresh black asphalt road with yellow edge lines; no buildings in sight; kilometre marker posts, wooden fence posts with wire; banana plants and bamboo; morning, autumn, light rain with wet road surfaces. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a straight road through open farmland, a fresh black asphalt road with yellow edge lines; no buildings in sight; kilometre marker posts, wooden fence posts with wire; banana plants and bamboo; morning, autumn, light rain with wet road surfaces. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p004",
+      "seed": 573330498,
+      "attributes": {
+        "setting": "industrial",
+        "setting_desc": "a road through an industrial area with warehouses and yards",
+        "road": "a concrete road with expansion joints",
+        "roadside": [
+          "a few pedestrians on the pavement",
+          "a row of rubbish bins"
+        ],
+        "vegetation": "birch trees",
+        "weather": "overcast sky",
+        "time_of_day": "early evening",
+        "season": "summer",
+        "surreal": null,
+        "structures": "wooden houses painted in faded bright colours"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through an industrial area with warehouses and yards, a concrete road with expansion joints; wooden houses painted in faded bright colours; a few pedestrians on the pavement, a row of rubbish bins; birch trees; early evening, summer, overcast sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a road through an industrial area with warehouses and yards, a concrete road with expansion joints; wooden houses painted in faded bright colours; a few pedestrians on the pavement, a row of rubbish bins; birch trees; early evening, summer, overcast sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p005",
+      "seed": 992696249,
+      "attributes": {
+        "setting": "steppe",
+        "setting_desc": "a long road across a grassy steppe with distant hills",
+        "road": "a fresh black asphalt road with yellow edge lines",
+        "roadside": [
+          "an abandoned car on the verge",
+          "a faded speed limit sign"
+        ],
+        "vegetation": "bare deciduous trees",
+        "weather": "clear sky",
+        "time_of_day": "afternoon",
+        "season": "wet season",
+        "surreal": "an enormous stone hand rises out of the ground beside the road",
+        "structures": "a small bus shelter"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a long road across a grassy steppe with distant hills, a fresh black asphalt road with yellow edge lines; a small bus shelter; an abandoned car on the verge, a faded speed limit sign; bare deciduous trees; afternoon, wet season, clear sky; an enormous stone hand rises out of the ground beside the road. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p006",
+      "seed": 491876988,
+      "attributes": {
+        "setting": "forest",
+        "setting_desc": "a road through a dense forest",
+        "road": "a patched asphalt road with potholes",
+        "roadside": [
+          "a parked pickup truck on the verge",
+          "reflector posts along the edge"
+        ],
+        "vegetation": "tall pine trees",
+        "weather": "light snow on the ground",
+        "time_of_day": "early evening",
+        "season": "wet season",
+        "surreal": "every building is upside down, resting on its roof",
+        "structures": "a rusted water tank on a tower"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a road through a dense forest, a patched asphalt road with potholes; a rusted water tank on a tower; a parked pickup truck on the verge, reflector posts along the edge; tall pine trees; early evening, wet season, light snow on the ground; every building is upside down, resting on its roof. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p007",
+      "seed": 1960944880,
+      "attributes": {
+        "setting": "tropical",
+        "setting_desc": "a road through a humid tropical town with lush vegetation",
+        "road": "a cracked asphalt road with faded white centre lines",
+        "roadside": [
+          "a row of rubbish bins",
+          "roadside billboards with faded posters"
+        ],
+        "vegetation": "banana plants and bamboo",
+        "weather": "scattered clouds",
+        "time_of_day": "midday",
+        "season": "spring",
+        "surreal": null,
+        "structures": "grey prefabricated apartment blocks"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a road through a humid tropical town with lush vegetation, a cracked asphalt road with faded white centre lines; grey prefabricated apartment blocks; a row of rubbish bins, roadside billboards with faded posters; banana plants and bamboo; midday, spring, scattered clouds. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p008",
+      "seed": 306814401,
+      "attributes": {
+        "setting": "desert",
+        "setting_desc": "a two-lane road crossing a dry desert",
+        "road": "a concrete road with expansion joints",
+        "roadside": [
+          "kilometre marker posts",
+          "a drainage ditch beside the road"
+        ],
+        "vegetation": "cacti",
+        "weather": "fog",
+        "time_of_day": "late afternoon with long shadows",
+        "season": "wet season",
+        "surreal": null,
+        "structures": "no buildings in sight"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a two-lane road crossing a dry desert, a concrete road with expansion joints; no buildings in sight; kilometre marker posts, a drainage ditch beside the road; cacti; late afternoon with long shadows, wet season, fog. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p009",
+      "seed": 564233310,
+      "attributes": {
+        "setting": "old_town",
+        "setting_desc": "a narrow street in an old town centre",
+        "road": "a cobblestone road",
+        "roadside": [
+          "a few pedestrians on the pavement",
+          "street signs in an unfamiliar script"
+        ],
+        "vegetation": "flowering bushes",
+        "weather": "hazy sky",
+        "time_of_day": "morning",
+        "season": "dry season",
+        "surreal": null,
+        "structures": "stone cottages with slate roofs"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a narrow street in an old town centre, a cobblestone road; stone cottages with slate roofs; a few pedestrians on the pavement, street signs in an unfamiliar script; flowering bushes; morning, dry season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a narrow street in an old town centre, a cobblestone road; stone cottages with slate roofs; a few pedestrians on the pavement, street signs in an unfamiliar script; flowering bushes; morning, dry season, hazy sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    },
+    {
+      "id": "p010",
+      "seed": 1059817199,
+      "attributes": {
+        "setting": "suburb",
+        "setting_desc": "a quiet residential suburban street",
+        "road": "a patched asphalt road with potholes",
+        "roadside": [
+          "a small roadside shrine",
+          "roadside billboards with faded posters"
+        ],
+        "vegetation": "birch trees",
+        "weather": "overcast sky",
+        "time_of_day": "afternoon",
+        "season": "summer",
+        "surreal": "a second, smaller copy of the street hangs upside down in the sky",
+        "structures": "pastel-painted stucco buildings with flat roofs"
+      },
+      "prompt_360": "360 degree equirectangular panorama, street-level photo taken from a camera mounted on the roof of a car, about 2.5 metres above the road, the car is centred on the road, level horizon at the vertical centre of the image, the car roof and camera mount visible at the bottom of the panorama. a quiet residential suburban street, a patched asphalt road with potholes; pastel-painted stucco buildings with flat roofs; a small roadside shrine, roadside billboards with faded posters; birch trees; afternoon, summer, overcast sky; a second, smaller copy of the street hangs upside down in the sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "prompt_forward": "street-level photo taken from a camera on the roof of a car, looking straight down the road, camera about 2.5 metres above the road, level horizon. a quiet residential suburban street, a patched asphalt road with potholes; pastel-painted stucco buildings with flat roofs; a small roadside shrine, roadside billboards with faded posters; birch trees; afternoon, summer, overcast sky; a second, smaller copy of the street hangs upside down in the sky. ordinary documentary snapshot, natural colours, slightly flat lighting, mild JPEG compression, everyday photo, not cinematic.",
+      "negative_prompt": "cinematic, dramatic lighting, HDR, oversaturated, painting, illustration, 3d render, cartoon, fisheye circle, black borders, vignette, tilted horizon, text watermark, logo, Google, blurry, low detail, distorted"
+    }
+  ]
+}
