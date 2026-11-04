@@ -35,3 +35,21 @@ Every model, pipeline and design decision, with the reason. Newest at the bottom
 
 Seam score is the mean absolute difference between the left and right edge columns (0–255). Lower is better.
 Total bake-off spend is estimated at about $4.30, including the test round and the dropped Hunyuan runs. GPT prices are estimates; fal's usage page has the exact figures.
+
+## 2026-11-04 — Production pipeline: GPT Image 2 (high) at 3840×1920 + SeedVR 2× upscale
+- **Decision:** every new place uses `openai/gpt-image-2`, quality **high**, at **3840×1920** (the model's largest 2:1 size), PNG output. Then `fal-ai/seedvr/upscale/image` ×2 brings it to **7680×3840**, saved as JPEG quality 92.
+- **Why:** the owner judged GPT Image 2 high "by far the best" in the bake-off, but the 2048×1024 images looked soft in the viewer. A resolution test on p005 compared:
+  - A: before, 2048, ~$0.25
+  - B: 3840 native, ~$0.88
+  - C: 3840 + SeedVR, ~$0.91
+  - D: 3840 + Topaz, ~$1.04
+  - E: medium 3840 + SeedVR, ~$0.25
+
+  The owner picked **C**. E was much cheaper but had visibly simpler texture.
+- **Seam handling:** before upscaling, 128 px from each edge are copied onto the opposite side, then cropped off afterwards, so the left/right join stays continuous (seam score ≈ 4–7).
+- **Cost:** about $0.91 per place (estimate; GPT is token-priced).
+
+## 2026-11-04 — Phase 1 is a local app (exception to "no backend")
+- **Decision:** Phase 1 is a local Windows app (`Phantom Atlas.bat` → `app/server.py`). It generates a new random place on demand and shows it in the 360° viewer. Places are saved to `gallery/` (git-ignored).
+- **Why:** on-demand generation needs the fal.ai key, and a GitHub Pages site is public, so the key can't live there. A server bound to 127.0.0.1 keeps the key on the owner's computer. The owner approved this exception to the "no backend" rule.
+- **Safety:** the server only listens on 127.0.0.1, rejects cross-site POSTs, runs one generation at a time, and the page asks for confirmation with the estimated cost before every paid generation.

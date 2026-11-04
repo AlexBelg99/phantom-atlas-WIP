@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phantom Atlas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.css">
+<style>
+/* Layout: the panorama fills the window; a slim bar on top, a place card bottom-left, gallery as a side drawer. */
+:root {
+  --glass: rgba(18, 22, 19, 0.72); --glass-strong: rgba(18, 22, 19, 0.9);
+  --ink: #eef1ec; --muted: #a9b2aa; --line: rgba(255, 255, 255, 0.14);
+  --accent: #7cc79c; --accent-ink: #0d1a12; --surreal: #c3a8f0; --danger: #f08a7a;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; background: #0b0d0b; color: var(--ink); font: 14px/1.45 var(--sans); overflow: hidden; }
+#viewer { position: fixed; inset: 0; }
+.empty { position: fixed; inset: 0; display: grid; place-items: center; text-align: center; color: var(--muted); padding: 24px; }
+.empty h2 { color: var(--ink); font-size: 1.4rem; margin: 0 0 6px; }
+
+.bar { position: fixed; top: 12px; left: 12px; right: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; z-index: 20; pointer-events: none; }
+.bar > * { pointer-events: auto; }
+.brand { background: var(--glass); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-weight: 600; letter-spacing: 0.02em; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.spacer { flex: 1; }
+button { font: inherit; color: var(--ink); background: var(--glass); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer; }
+button:hover:not(:disabled) { border-color: rgba(255, 255, 255, 0.35); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: 0.5; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.spend { font: 12px var(--mono); color: var(--muted); background: var(--glass); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font-variant-numeric: tabular-nums; }
+
+.card { position: fixed; left: 12px; bottom: 56px; max-width: min(460px, calc(100vw - 24px)); background: var(--glass); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; z-index: 15; }
+.card p { margin: 0; }
+.card .surreal { color: var(--surreal); font-weight: 600; margin-bottom: 2px; }
+.card .meta { font: 12px var(--mono); color: var(--muted); margin-top: 4px; }
+.card details { margin-top: 4px; }
+.card summary { cursor: pointer; color: var(--accent); font-size: 12px; }
+.card .prompt { color: var(--muted); font-size: 12px; margin-top: 4px; max-height: 30vh; overflow: auto; }
+
+.modal { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.45); z-index: 40; padding: 16px; }
+.panel { background: var(--glass-strong); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; width: min(440px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.panel h3 { margin: 0; font-size: 1.05rem; }
+.panel p { margin: 0; color: var(--muted); }
+.panel .row { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.panel .err { color: var(--danger); }
+.steps { font: 13px var(--mono); color: var(--ink); }
+.timer { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.spinner { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--accent); animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 100vw); background: var(--glass-strong); backdrop-filter: blur(10px); border-left: 1px solid var(--line); z-index: 30; display: flex; flex-direction: column; }
+.drawer header { display: flex; align-items: center; gap: 8px; padding: 14px 14px 10px; border-bottom: 1px solid var(--line); }
+.drawer header h3 { margin: 0; flex: 1; font-size: 1rem; }
+.list { overflow: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.item { display: grid; grid-template-columns: 120px 1fr; gap: 10px; align-items: center; text-align: left; border-radius: 8px; padding: 6px; background: transparent; }
+.item img { width: 120px; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 5px; display: block; background: #222; }
+.item span { min-width: 0; font-size: 12px; }
+.item .d { color: var(--muted); font: 11px var(--mono); display: block; }
+.item.on { border-color: var(--accent); }
+.test { color: #ffd479; }
+</style>
+</head>
+<body>
+<div id="viewer"></div>
+<div id="empty" class="empty" hidden>
+  <div><h2>No places yet</h2><p>Press <b>New place</b> to generate your first panorama.</p></div>
+</div>
+
+<div class="bar">
+  <div class="brand">Phantom Atlas<small id="mode"></small></div>
+  <div class="spacer"></div>
+  <span class="spend" id="spend" title="Estimated spending on all places in your gallery"></span>
+  <button id="btn-random">Random from gallery</button>
+  <button id="btn-gallery">Gallery</button>
+  <button id="btn-new" class="primary">New place</button>
+</div>
+
+<section id="card" class="card" hidden></section>
+
+<div id="confirm" class="modal" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <h3 id="confirm-title">Generate a new place?</h3>
+    <p id="confirm-text"></p>
+    <div class="row"><button id="confirm-no">Cancel</button><button id="confirm-yes" class="primary">Generate</button></div>
+  </div>
+</div>
+
+<div id="progress" class="modal" hidden>
+  <div class="panel" role="status" aria-live="polite">
+    <div style="display:flex;gap:12px;align-items:center"><div class="spinner"></div><h3>Travelling somewhere new…</h3></div>
+    <p id="progress-place"></p>
+    <div class="steps" id="progress-step"></div>
+    <div class="timer" id="progress-timer"></div>
+  </div>
+</div>
+
+<div id="error" class="modal" hidden>
+  <div class="panel" role="alertdialog" aria-labelledby="error-title">
+    <h3 id="error-title">Something went wrong</h3>
+    <p class="err" id="error-text"></p>
+    <div class="row"><button id="error-ok" class="primary">OK</button></div>
+  </div>
+</div>
+
+<aside id="drawer" class="drawer" hidden>
+  <header><h3>Gallery</h3><button id="drawer-close">Close</button></header>
+  <div id="list" class="list"></div>
+</aside>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+  "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.module.js"
+} }
+</script>
+<script type="module">
+import { Viewer } from "@photo-sphere-viewer/core";
+
+const $ = (id) => document.getElementById(id);
+let status = null, gallery = [], current = null, viewer = null;
+
+const money = (n) => `$${n.toFixed(2)}`;
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.error || `Request failed (${r.status})`);
+  return data;
+}
+
+async function refresh() {
+  [status, gallery] = await Promise.all([api("/api/status"), api("/api/gallery")]);
+  $("mode").textContent = status.fake ? "· test mode (no cost)" : "";
+  $("mode").className = status.fake ? "test" : "";
+  $("spend").textContent = `${gallery.length} ${gallery.length === 1 ? "place" : "places"} · ${money(status.spent_total)} spent`;
+  $("btn-random").disabled = gallery.length === 0;
+  $("btn-new").textContent = status.fake ? "New place (test)" : `New place · ~${money(status.cost_per_place)}`;
+  $("empty").hidden = gallery.length > 0;
+  renderList();
+}
+
+function renderCard(p) {
+  const date = new Date(p.date).toLocaleString();
+  $("card").innerHTML = `
+    ${p.surreal ? `<p class="surreal">✦ ${esc(p.surreal)}</p>` : ""}
+    <p>${esc(p.summary)}</p>
+    <p class="meta">${esc(date)} · ${p.size[0]}×${p.size[1]} · ~${money(p.cost_estimate_usd)}${p.fake ? " · test" : ""}</p>
+    <details><summary>Full prompt</summary><p class="prompt">${esc(p.prompt)}</p></details>`;
+  $("card").hidden = false;
+}
+
+function renderList() {
+  $("list").innerHTML = gallery.map((p, i) => `
+    <button class="item${current && current.id === p.id ? " on" : ""}" data-i="${i}">
+      <img loading="lazy" src="/gallery/${encodeURIComponent(p.file)}" alt="">
+      <span>${p.surreal ? '<b style="color:var(--surreal)">✦</b> ' : ""}${esc(p.summary)}
+        <span class="d">${esc(new Date(p.date).toLocaleDateString())}</span></span>
+    </button>`).join("");
+}
+
+async function show(p) {
+  current = p;
+  renderCard(p);
+  renderList();
+  const url = `/gallery/${encodeURIComponent(p.file)}`;
+  if (!viewer) {
+    viewer = new Viewer({ container: $("viewer"), panorama: url, navbar: ["zoom", "fullscreen"],
+                          defaultZoomLvl: 0, loadingTxt: "Loading panorama…" });
+  } else {
+    await viewer.setPanorama(url, { position: { yaw: 0, pitch: 0 }, zoom: 0, transition: false, showLoader: true });
+  }
+}
+
+function showError(msg) { $("error-text").textContent = msg; $("error").hidden = false; }
+
+function askNew() {
+  if (!status.fake && !status.has_key) {
+    showError("No fal.ai API key found. Open the .env file in the Phantom Atlas folder, put your key after FAL_KEY=, save, and restart the app.");
+    return;
+  }
+  $("confirm-text").textContent = status.fake
+    ? "Test mode: this reuses an existing image and costs nothing."
+    : `This calls fal.ai and costs about ${money(status.cost_per_place)}. It takes about 1–2 minutes.`;
+  $("confirm").hidden = false;
+  $("confirm-yes").focus();
+}
+
+async function generate() {
+  $("confirm").hidden = true;
+  $("progress").hidden = false;
+  $("progress-place").textContent = "";
+  $("progress-step").textContent = "Starting";
+  const t0 = Date.now();
+  const tick = setInterval(() => { $("progress-timer").textContent = `${Math.round((Date.now() - t0) / 1000)} s`; }, 500);
+  try {
+    let job = await api("/api/new", { method: "POST" });
+    while (job.status === "running") {
+      await new Promise((r) => setTimeout(r, 1500));
+      job = await api(`/api/job/${job.id}`);
+      $("progress-step").textContent = job.step || "";
+      if (job.summary) $("progress-place").innerHTML =
+        `${job.surreal ? `<b style="color:var(--surreal)">✦ ${esc(job.surreal)}</b><br>` : ""}${esc(job.summary)}`;
+    }
+    if (job.status === "error") throw new Error(job.error);
+    await refresh();
+    await show(job.place);
+  } catch (err) {
+    showError(err.message);
+  } finally {
+    clearInterval(tick);
+    $("progress").hidden = true;
+  }
+}
+
+$("btn-new").addEventListener("click", askNew);
+$("confirm-no").addEventListener("click", () => { $("confirm").hidden = true; });
+$("confirm-yes").addEventListener("click", generate);
+$("error-ok").addEventListener("click", () => { $("error").hidden = true; });
+$("btn-random").addEventListener("click", () => {
+  const others = gallery.filter((p) => !current || p.id !== current.id);
+  const pool = others.length ? others : gallery;
+  if (pool.length) show(pool[Math.floor(Math.random() * pool.length)]);
+});
+$("btn-gallery").addEventListener("click", () => { $("drawer").hidden = false; });
+$("drawer-close").addEventListener("click", () => { $("drawer").hidden = true; });
+$("list").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-i]");
+  if (b) { show(gallery[Number(b.dataset.i)]); }
+});
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { $("confirm").hidden = true; $("drawer").hidden = true; $("error").hidden = true; }
+});
+
+refresh().then(() => { if (gallery.length) show(gallery[0]); })
+  .catch((err) => showError(`Could not reach the app: ${err.message}`));
+</script>
+</body>
+</html>
