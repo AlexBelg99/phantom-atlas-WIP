@@ -17,7 +17,6 @@ import io
 import json
 import os
 import random
-import shutil
 import tempfile
 import time
 import urllib.request
@@ -105,9 +104,11 @@ def seam_score(img: Image.Image) -> float:
 
 
 def generate_place(quality: str = "high", weird: float = 0.3, fake: bool = False,
-                   progress: Progress = lambda s: None) -> dict:
+                   progress: Progress = lambda s: None,
+                   on_prompt: Callable[[dict], None] = lambda item: None) -> dict:
     """Generate one place into gallery/ and return its metadata."""
     item = random_prompt(weird)
+    on_prompt(item)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     place_id = f"{stamp}-{item['seed'] % 100000:05d}"
     GALLERY.mkdir(exist_ok=True)

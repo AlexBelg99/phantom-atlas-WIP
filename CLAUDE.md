@@ -2,7 +2,8 @@
 A random street-level panorama viewer for a world that doesn't exist. Each panorama is an AI-generated 360° image in the style of a car-mounted street camera. Every scene is randomly generated; some are deliberately surreal.
 
 ## Current phase
-Phase 0 — model bake-off. Compare generation pipelines on docs/test_prompts.json and pick one. Then Phase 1: a random panorama viewer using pre-generated images.
+Phase 0 (model bake-off) is done: GPT Image 2 high at 3840x1920 + SeedVR 2x upscale (see docs/decisions.md).
+Phase 1: a local Windows app ("Phantom Atlas.bat" -> app/server.py) that generates a new random place on demand and shows it in the 360° viewer. The GitHub Pages site stays as the bake-off comparison / public gallery.
 
 ## Hard rules
 - No Move: one static panorama at a time (look around and zoom only). Do not build movement or linked panoramas.
@@ -11,6 +12,7 @@ Phase 0 — model bake-off. Compare generation pipelines on docs/test_prompts.js
 - Surreal content is intended. Don't "fix" weird prompts to be realistic; keep the plain street-camera style.
 
 ## How we work (GitHub + Claude Code cloud sessions)
+- The owner runs the local app on Windows. Test app changes with `python app/server.py --fake` (no API calls) before spending money.
 - The repo lives on GitHub. Claude works in cloud sessions, on a branch, and opens a pull request for each piece of work. I review and merge.
 - FAL_KEY is an environment variable on the cloud environment. Read it from os.environ; never write it into a file. (.env is only a fallback for running locally.)
 - I can't open files on the cloud VM, so anything I need to look at must be committed: generated images go in /web/public, and the /web site deploys to GitHub Pages from main.
@@ -19,11 +21,14 @@ Phase 0 — model bake-off. Compare generation pipelines on docs/test_prompts.js
 ## Stack
 - Generation scripts: Python 3.11+ in /gen, calling fal.ai (fal-client)
 - Frontend: Vite + TypeScript in /web, panorama viewer: Pannellum (or Photo Sphere Viewer); built and deployed to GitHub Pages by a GitHub Actions workflow
-- Data: bake-off images in /web/public/bakeoff/<pipeline>/<id>.jpg (+ metadata JSON); later /web/public/panos/*.jpg + panos.json
+- Data: bake-off images in /web/public/bakeoff/<pipeline>/<id>.jpg (+ metadata JSON)
+- Local app: app/server.py (Python stdlib http.server, 127.0.0.1 only) + app/static/index.html (Photo Sphere Viewer from jsDelivr); production pipeline in gen/pipeline.py
+- Local app output goes to /gallery (git-ignored, 7680x3840 JPEG q92). Never commit gallery images.
 - Keep committed images reasonably small: JPEG, quality ~85, max 4096x2048
 
 ## Repo layout
-- /gen — prompt_gen.py (random prompt generator), bakeoff.py, post-processing
+- /gen — prompt_gen.py (random prompt generator), bakeoff.py, pipeline.py (production pipeline), build_index.py
+- /app — local app server and page; "Phantom Atlas.bat" at the repo root launches it on Windows
 - /web — viewer frontend (and the images it shows, under /web/public)
 - /docs — test_prompts.json, decisions.md
 
@@ -48,4 +53,5 @@ Phase 0 — model bake-off. Compare generation pipelines on docs/test_prompts.js
 
 ## Do not
 - Use or download Google Street View imagery or Google branding.
-- Add a backend or database until Phase 2 asks for one.
+- Add an online backend or database until Phase 2 asks for one. (Exception: the local app server, which only listens on 127.0.0.1.)
+- Expose the fal key to a browser or a public site.

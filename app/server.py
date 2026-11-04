@@ -40,8 +40,14 @@ def run_job(job_id: str) -> None:
     def progress(msg: str) -> None:
         job["step"] = msg
 
+    def on_prompt(item: dict) -> None:
+        a = item["attributes"]
+        job["summary"] = f"{a['setting_desc']}; {a['structures']}; {a['weather']}"
+        job["surreal"] = a["surreal"]
+
     try:
-        meta = pipeline.generate_place(SETTINGS["quality"], SETTINGS["weird"], SETTINGS["fake"], progress)
+        meta = pipeline.generate_place(SETTINGS["quality"], SETTINGS["weird"], SETTINGS["fake"],
+                                       progress, on_prompt)
         job.update(status="done", place=meta, step="Done")
     except Exception as exc:  # report to the page instead of crashing the server
         traceback.print_exc()
@@ -146,8 +152,14 @@ def main() -> int:
     if SETTINGS["quality"] not in pipeline.GEN_COST:
         SETTINGS["quality"] = "high"
 
-    server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     url = f"http://127.0.0.1:{PORT}"
+    try:
+        server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
+    except OSError:
+        print(f"Port {PORT} is busy. Phantom Atlas is probably already running; opening it.")
+        if not args.no_browser:
+            webbrowser.open(url)
+        return 1
     print(f"Phantom Atlas is running at {url}")
     print("Mode:", "TEST (no API calls)" if args.fake else f"real generation, quality={SETTINGS['quality']}")
     if not args.fake and not pipeline.has_key():
